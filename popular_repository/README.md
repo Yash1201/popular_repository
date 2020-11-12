@@ -4,7 +4,7 @@ This Project is made in Django, in this project we have to give
 2. How many number of most forked repository you want
 3. How many number of top committees (contributors) of that repositories you want
 
-these data , then it fetches the data through GitHub api and shows the data
+these data , then it fetches the data through GitHub api and shows the data on webpage
 
 ## Installation
 Install via pip: `pip install -Ur requirements.txt`

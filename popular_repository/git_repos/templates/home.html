@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Repository</title>
+    <style type="text/css">
+        body {
+          background-color: aquamarine;
+          text-align: center;
+          padding-top: 70px;
+          padding-left: 300px;
+          align-self: center;
+        }
+        div{
+            border-radius: 5px;
+            background-color: white;
+            width:fit-content;
+            padding: 10px 30px;
+            margin: 20px;
+          }
+          h2{
+              color: blue;
+              text-decoration: underline;
+          }
+          .al_danger{
+              color: red;
+              text-align: center;
+              
+          }
+          .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+          }
+    </style>
+    <script>
+        function validateForm() {
+          var x = document.forms["myForm"]["org_name"].value;
+          var y = document.forms["myForm"]["n"].value;
+          var z = document.forms["myForm"]["m"].value;
+          if (x == "" || x == null || y == "" || y == null || z == "" || z == null) {
+            alert("Invalid Input");
+            return false;
+          }
+        }
+    </script>
+</head>
+<body >
+    <div>
+        <form name="myForm" action="" method="post" onsubmit="return validateForm()" >
+            {% csrf_token %}
+
+            <h1>
+                <label for="fname">Organisation Name                             :  </label>
+                <input type="text" name="org_name"><br>
+                <label for="fname">Number of most Forked repository              :  </label>
+                <input type="number" name="n"><br>
+                <label for="fname">Number of Top Contributors of that repository :  </label>
+                <input type="number" name="m"><br><br>
+                <input type="submit" value="Submit" class="button">
+            </h1>
+        </form>
+    </div>
+
+        {% for message in messages %}
+            <dialog open><h3 class="al_danger">{{ message }}</h3></dialog>
+        {% endfor %}
+    
+
+</body>
+</html>

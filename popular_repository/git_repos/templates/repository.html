@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Repository</title>
+    <style type="text/css">
+        body {
+          background-color: aquamarine;
+          padding-top: 70px;
+          padding-left: 350px;
+          align-self: center;
+        }
+        div{
+            border-radius: 5px;
+            background-color: white;
+            width:fit-content;
+            padding: 10px 60px;
+            margin: 20px;
+          }
+          h2{
+              
+          }
+          .org_name{
+              
+              padding-left: 300px;
+              font-size: 50px;
+          }
+    </style>
+</head>
+<body>
+    <h1 class="org_name"><p><strong>{{ rend_dict.org_name }}</strong></p></h1>
+    <ol>
+    {% for i in rend_dict.array %}
+    <div>
+        <h1> <li>  <a href={{ i.link }}> {{ i.name }} </a>  </li> </h1>
+        <h3> <p> Fork Count : {{ i.fork }}<br> </p> </h3>
+        <h3> <p>Top Contributors are : </p> </h3>
+        <ol>
+            {% for j in i.contribution %}
+            <h2> <li>  <a href={{ j.link }}> {{ j.name }} </a>  </li> </h2>
+                <h3> <p>Commit Count : {{ j.commit }}<br> </p> </h3>
+            {% endfor %}
+        </ol>
+    </div>
+    {% endfor %}
+    </ol>
+</body>
+</html>
